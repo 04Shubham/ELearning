@@ -31,6 +31,10 @@ Route::prefix('admin')->middleware(['auth','admin'])->group(function ()  {
     Route::get('/trash/restore/{id}',[App\Http\Controllers\Admin\CategoryController::class,'restore']);
     Route::get('/trash/delete/{id}',[App\Http\Controllers\Admin\CategoryController::class,'delete']);
 
-
+    Route::get('/featured/categories',[App\Http\Controllers\Admin\FeaturedController::class,'view_featured_categories']);
+    Route::post('/featured/categories/store',[App\Http\Controllers\Admin\FeaturedController::class,'store_featured_category']);
+    Route::get('/featured/courses',[App\Http\Controllers\Admin\FeaturedController::class,'view_featured_courses']);
+    Route::post('/featured/categories/delete/{id}',[App\Http\Controllers\Admin\FeaturedController::class,'remove_featured_category']);
+ 
 
 }); 

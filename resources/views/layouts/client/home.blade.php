@@ -187,8 +187,7 @@
                 @foreach ($categories as $category)
                     <div class="col-lg-4 col-md-6 mb-12">
                         <div class="cat-item position-relative overflow-hidden rounded mb-5">
-                            <img class="img-fluid" src="{{ asset('uploads/category/'.$category->image) }}"
-                                alt="">
+                            <img class="img-fluid" src="{{ asset('uploads/category/'.$category->image) }}" alt="">
                             <a class="cat-overlay text-white text-decoration-none" href="">
                                 <h4 class="text-white font-weight-medium">{{$category->title}}</h4>
                                 <span> Courses</span>
@@ -210,6 +209,9 @@
     </div>
     {{-- Enter By Db --}}
 
+
+
+    
     <!-- Courses Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -232,7 +234,7 @@
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5
                                         <small>(250)</small>
                                     </h6>
-                                    <h5 class="m-0">$99</h5>
+                                    <h5 class="m-0">Rs. 999/-</h5>
                                 </div>
                             </div>
                         </div>
@@ -252,7 +254,7 @@
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5
                                         <small>(250)</small>
                                     </h6>
-                                    <h5 class="m-0">$99</h5>
+                                    <h5 class="m-0">Rs. 999/-</h5>
                                 </div>
                             </div>
                         </div>
@@ -272,7 +274,7 @@
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5
                                         <small>(250)</small>
                                     </h6>
-                                    <h5 class="m-0">$99</h5>
+                                    <h5 class="m-0">Rs. 999/-</h5>
                                 </div>
                             </div>
                         </div>
@@ -292,7 +294,7 @@
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5
                                         <small>(250)</small>
                                     </h6>
-                                    <h5 class="m-0">$99</h5>
+                                    <h5 class="m-0">Rs. 999/-</h5>
                                 </div>
                             </div>
                         </div>
@@ -312,7 +314,7 @@
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5
                                         <small>(250)</small>
                                     </h6>
-                                    <h5 class="m-0">$99</h5>
+                                    <h5 class="m-0">Rs. 999/-</h5>
                                 </div>
                             </div>
                         </div>
@@ -332,7 +334,7 @@
                                     <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5
                                         <small>(250)</small>
                                     </h6>
-                                    <h5 class="m-0">$99</h5>
+                                    <h5 class="m-0">Rs. 999/-</h5>
                                 </div>
                             </div>
                         </div>

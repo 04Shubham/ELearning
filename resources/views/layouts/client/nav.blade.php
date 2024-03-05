@@ -59,7 +59,7 @@
                          <a href="#" class="nav-link dropdown-toggle"
                              data-toggle="dropdown">{{ Auth::user()->name }}</a> 
                          <div class="dropdown-menu rounded-0 m-0">
-                             <a href="{{ url('') }}" class="dropdown-item">{{ Auth::user()->name }}</a>
+                             <a href="{{ url('') }}" class="dropdown-item">My Account</a>
                              <a href="{{ route('logout') }}" class="dropdown-item"
                                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

@@ -1,5 +1,4 @@
-
- <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
@@ -14,9 +13,14 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{url('/admin/dashboard')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
+    </li>
+    <li class="nav-item active">
+        <a class="nav-link" href="{{url('/admin/trash')}}">
+            <i class="fas fa-trash"></i>
+            <span>Trash</span></a>
     </li>
 
     <!-- Divider -->
@@ -36,11 +40,12 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{url('/admin/category/create')}}">Add Categories</a>
-                <a class="collapse-item" href="{{url('/admin/categories')}}">View Categories</a>
+                <a class="collapse-item" href="{{ url('/admin/category/create') }}">Add Categories</a>
+                <a class="collapse-item" href="{{ url('/admin/categories') }}">View Categories</a>
             </div>
         </div>
     </li>
+    
 
     <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
@@ -49,8 +54,7 @@
             <i class="fas fa-fw fa-wrench"></i>
             <span>Utilities</span>
         </a>
-        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-            data-parent="#accordionSidebar">
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Custom Utilities:</h6>
                 <a class="collapse-item" href="utilities-color.html">Colors</a>
@@ -112,6 +116,6 @@
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>
 
-    
+
 
 </ul>

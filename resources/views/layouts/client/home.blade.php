@@ -174,7 +174,7 @@
 
 
     {{-- Enter By Db --}}
-    <div class="container-fluid py-5">
+    {{-- <div class="container-fluid py-5">
         <div class="container pt-5 pb-3">
             <div class="text-center mb-5">
                 <h1>Top Courses</h1>
@@ -182,14 +182,17 @@
             </div>
             <div class="row">
                 @php
-                    $categories = App\Models\Category::all();
+                    $featured_categories = App\Models\FeaturedCategory::all();
                 @endphp
-                @foreach ($categories as $category)
+
+                @foreach ($featured_categories as $category)
                     <div class="col-lg-4 col-md-6 mb-12">
                         <div class="cat-item position-relative overflow-hidden rounded mb-5">
-                            <img class="img-fluid" src="{{ asset('uploads/category/'.$category->image) }}" alt="">
-                            <a class="cat-overlay text-white text-decoration-none" href="">
-                                <h4 class="text-white font-weight-medium">{{$category->title}}</h4>
+                            <img class="img-fluid" src="{{ asset('uploads/category/' . $category->category->image) }}"
+                                alt="">
+                            <a class="cat-overlay text-white text-decoration-none"
+                                href="{{ url('/category/' . $category->slug) }}">
+                                <h4 class="text-white font-weight-medium">{{ $category->category->title }}</h4>
                                 <span> Courses</span>
                             </a>
                         </div>
@@ -203,15 +206,15 @@
                           <a href="#" class="btn btn-primary">Browse</a>
                         </div>
                     </div> --}}
-                @endforeach
+                {{-- @endforeach
             </div>
         </div>
-    </div>
+    </div> --}} 
     {{-- Enter By Db --}}
 
 
 
-    
+
     <!-- Courses Start -->
     <div class="container-fluid py-5">
         <div class="container py-5">
@@ -220,27 +223,34 @@
                 <h1>Our Popular Courses</h1>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="rounded overflow-hidden mb-2">
-                        <img class="img-fluid" src="{{ asset('client/img/course-1.jpg') }}" alt="">
-                        <div class="bg-secondary p-4">
-                            <div class="d-flex justify-content-between mb-3">
-                                <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>25 Students</small>
-                                <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>01h 30m</small>
-                            </div>
-                            <a class="h5" href="">Web design & development courses for beginner</a>
-                            <div class="border-top mt-4 pt-4">
-                                <div class="d-flex justify-content-between">
-                                    <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5
-                                        <small>(250)</small>
-                                    </h6>
-                                    <h5 class="m-0">Rs. 999/-</h5>
+                @php
+                    $featured_categories = App\Models\FeaturedCategory::all();
+                @endphp
+                @foreach ($featured_categories as $category)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="rounded overflow-hidden mb-2">
+                            <img class="img-fluid" src="{{ asset('uploads/category/' . $category->category->image) }}"
+                                alt="">
+                            <div class="bg-secondary p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>45 Students</small>
+                                    <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>03h 30m</small>
+                                </div>
+                                <a class="h5" href="">{{ $category->category->title }}</a>
+                                <p>Web design & development courses for beginner</p>
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5
+                                            <small>(250)</small>
+                                        </h6>
+                                        <h5 class="m-0">Rs. 999/-</h5>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 mb-4">
+                @endforeach
+                {{-- <div class="col-lg-4 col-md-6 mb-4">
                     <div class="rounded overflow-hidden mb-2">
                         <img class="img-fluid" src="{{ asset('client/img/course-2.jpg') }}" alt="">
                         <div class="bg-secondary p-4">
@@ -339,7 +349,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

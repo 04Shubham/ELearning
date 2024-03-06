@@ -43,9 +43,9 @@
                     </thead>
                     @foreach ($featured_categories as $fcat)
                         <tr>
-                            <td>$fat->title</td>
+                            <td>{{$fcat->category->title}}</td> 
                             <td>
-                                <a href="{{uel('/admin/featured/categories/delete'.$fcat->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                <a href="{{url('/admin/featured/categories/delete'.$fcat->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

@@ -19,12 +19,12 @@ class Category extends Model
             'description',
             'image',
             'meta_title',
-            'description_title',
+            'meta_description',
     ];
    
-    // public function featured_categories()
-    // {
-    //     return $this->hasMany(FeaturedCategory::class, 'category_id', 'id');
-    // }
+    public function featured_categories()
+    {
+        return $this->hasMany(FeaturedCategory::class, 'category_id', 'id');
+    }
     
 }

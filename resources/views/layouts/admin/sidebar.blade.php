@@ -12,17 +12,12 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-        <a class="nav-link" href="{{url('/admin/dashboard')}}">
+    <li class="nav-item {{ Request::is('admin/dashboard') ? 'active' : '' }}">
+        <a class="nav-link" href="{{ url('/admin/dashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="{{url('/admin/trash')}}">
-            <i class="fas fa-trash"></i>
-            <span>Trash</span></a>
-    </li>
-
+    
     <!-- Divider -->
     <hr class="sidebar-divider">
 
@@ -31,37 +26,62 @@
         Interface
     </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-            aria-expanded="true" aria-controls="collapseTwo">
-            <i class="fas fa-fw fa-cog"></i>
+    <!-- Nav Item - Category Menu -->
+    <li class="nav-item {{Request::is('admin/category/create') || Request::is('admin/categories') ? 'active' : ''}}">
+        <a class="nav-link {{Request::is('admin/category/create') || Request::is('admin/categories') ? '' : 'collapsed'}}" href="#" data-toggle="collapse" data-target="#collapseCategory"
+            aria-expanded="{{Request::is('admin/category/create') || Request::is('admin/categories') ? true : false}}" aria-controls="collapseCategory">
+            <i class="fas fa-calendar"></i>
             <span>Categories</span>
         </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseCategory" class="collapse {{Request::is('admin/category/create') || Request::is('admin/categories') ? 'show' : ''}}" aria-labelledby="headingCategory" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ url('/admin/category/create') }}">Add Categories</a>
-                <a class="collapse-item" href="{{ url('/admin/categories') }}">View Categories</a>
+                <a class="collapse-item {{Request::is('admin/category/create') ? 'active' : ''}}" href="{{ url('/admin/category/create') }}">Add Categories</a> 
+                <a class="collapse-item {{ Request::is('admin/categories') ? 'active' : ''}}" href="{{ url('/admin/categories') }}">View Categories</a>
+                <a class="collapse-item {{ Request::is('admin/categories/trash') ? 'active' : ''}}" href="{{ url('/admin/categories/trash') }}">Trash</a>
             </div>
         </div>
     </li>
 
-    <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFeatured"
-            aria-expanded="true" aria-controls="collapseFeatured">
+ <hr class="sidebar-divider">
+    <li class="nav-item {{Request::is('admin/course/create') || Request::is('admin/courses') ? 'active' : ''}}">
+        <a class="nav-link {{Request::is('admin/course/create') || Request::is('admin/courses') ? '' : 'collapsed'}}" href="#" data-toggle="collapse" data-target="#collapseCourse"
+            aria-expanded="{{Request::is('admin/course/create') || Request::is('admin/courses') ? true : false}}" aria-controls="collapseCourse">
+            <i class="fab fa-discourse"></i>
+            <span>Courses</span>
+        </a>
+        <div id="collapseCourse" class="collapse {{Request::is('admin/course/create') || Request::is('admin/courses') ? 'show' : ''}}" aria-labelledby="headingCourse" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item {{Request::is('admin/course/create') ? 'active' : ''}}" href="{{ url('/admin/course/create') }}">Add Course</a>
+                <a class="collapse-item {{ Request::is('admin/courses') ? 'active' : ''}}" href="{{ url('/admin/courses') }}">View Courses</a>
+                <a class="collapse-item {{ Request::is('admin/courses/trash') ? 'active' : ''}}" href="{{ url('/admin/courses/trash') }}">Trash</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Featured Menu -->
+    <hr class="sidebar-divider">
+
+    <li
+        class="nav-item {{ Request::is('admin/featured/courses') || Request::is('admin/featured/categories') ? 'active' : '' }} ">
+        <a class="nav-link {{ Request::is('admin/featured/courses') || Request::is('admin/featured/categories') ? '' : 'collapsed' }} "
+            href="#" data-toggle="collapse" data-target="#collapseFeatured"
+            aria-expanded="{{ Request::is('admin/featured/courses') || Request::is('admin/featured/categories') ? true : false }}"
+            aria-controls="collapseFeatured">
             <i class="fab fa-stack-exchange"></i>
             <span>Featured</span>
         </a>
-        <div id="collapseFeatured" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+        <div id="collapseFeatured" class="collapse {{Request::is('admin/featured/courses') || Request::is('admin/featured/categories') ? 'show' : ''}}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{ url('/admin/featured/courses') }}">Courses</a>
-                <a class="collapse-item" href="{{ url('/admin/featured/categories') }}">Categories</a>
+                <a class="collapse-item {{ Request::is('admin/featured/courses') ? 'active' : '' }}"
+                    href="{{ url('/admin/featured/courses') }}">Courses</a>
+                <a class="collapse-item {{ Request::is('admin/featured/categories') ? 'active' : '' }}"
+                    href="{{ url('/admin/featured/categories') }}">Categories</a>
             </div>
         </div>
     </li>
-    
 
-    <!-- Nav Item - Utilities Collapse Menu -->
+
+    {{-- <!-- Nav Item - Utilities Collapse Menu -->
     <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
             aria-expanded="true" aria-controls="collapseUtilities">
@@ -77,18 +97,18 @@
                 <a class="collapse-item" href="utilities-other.html">Other</a>
             </div>
         </div>
-    </li>
+    </li> --}}
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+    {{-- <!-- Divider -->
+    <hr class="sidebar-divider"> --}}
 
     <!-- Heading -->
-    <div class="sidebar-heading">
+    {{-- <div class="sidebar-heading">
         Addons
-    </div>
+    </div> --}}
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
             aria-expanded="true" aria-controls="collapsePages">
             <i class="fas fa-fw fa-folder"></i>
@@ -120,12 +140,16 @@
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
-    </li>
+    </li> --}}
 
     <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+    {{-- <hr class="sidebar-divider d-none d-md-block"> --}}
 
     <!-- Sidebar Toggler (Sidebar) -->
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
     <div class="text-center d-none d-md-inline">
         <button class="rounded-circle border-0" id="sidebarToggle"></button>
     </div>

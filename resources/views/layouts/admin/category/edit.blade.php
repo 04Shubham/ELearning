@@ -50,7 +50,6 @@
                         <div class="col-md-6">
                             <img src="{{asset('uploads/category/'.$category->image)}}" alt="" height="200">
                         </div>
-                        
                     </div>
                     <div class="md-3">
                         <label form="">Meta Categories Title</label>

@@ -5,14 +5,13 @@
 @section('custom_style')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.1/css/dataTables.bootstrap5.css">
-    
+
 @endsection
 
 @section('content')
 
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Trash</h1>
-        
+        <h1 class="h3 mb-0 text-gray-800">Trash Course</h1>  
     </div>
 
     <div class="container">
@@ -43,31 +42,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($trashed_categories as $category)
-                            <tr>
-                                <td>{{$category->title}}</td>
-                                <td><img src="{{asset('uploads/category/'.$category->image)}}" alt="" height="32"></td>
-                                <td>{{$category->deleted_at->format('d/m/Y')}}</td>
-                                <td>
-                                    <a
-                                        href="{{url('/admin/trash/delete/'.$category->id)}}"
-                                        onclick="return confirm('Are you sure want to delete this category permanently ?')"
-                                        class="btn btn-danger"><i class="fas fa-trash-alt"></i>
-                                    </a>
-                                    <a
-                                        onclick="return confirm('Are you sure want to restore this category ?')"
-                                        href="{{url('/admin/trash/restore/'.$category->id)}}"
-                                        class="btn btn-success"><i class="fas fa-trash-restore"></i></a>
-                                </td>
-                                
-                            </tr>
-                                
+                            @foreach ($trashed_courses as $course)
+                                <tr>
+                                    <td>{{ $course->title }}</td>
+                                    <td><img src="{{ asset('uploads/course/' . $course->image) }}" alt=""
+                                            height="32"></td>
+                                    <td>{{ $course->deleted_at->format('d/m/Y') }}</td>
+                                    <td>
+                                        <a href="{{ url('/admin/trash/course/delete/' . $course->id) }}"
+                                            onclick="return confirm('Are you sure want to delete this course permanently ?')"
+                                            class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <a onclick="return confirm('Are you sure want to restore this course ?')"
+                                            href="{{ url('/admin/trash/course/restore/' . $course->id) }}"
+                                            class="btn btn-success"><i class="fas fa-trash-restore"></i></a>
+                                    </td>
+                                </tr>
                             @endforeach
-                            
                         </tbody>
-                    
                     </table>
-
                 </div>
             </div>
         </div>
@@ -75,7 +68,7 @@
 @endsection
 
 @section('custom_script')
-    
+
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.1/js/dataTables.js"></script>

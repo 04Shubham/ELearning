@@ -34,7 +34,7 @@
                         <input class="form-control" type="text" name="description">
                     </div>
                     <div class="md-3">
-                        <label form="">Slugn</label>
+                        <label form="">Slug</label>
                         <input class="form-control" type="text" name="slug">
                     </div>
                     <div class="md-3">

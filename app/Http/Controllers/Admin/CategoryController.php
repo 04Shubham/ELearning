@@ -119,6 +119,6 @@ class CategoryController extends Controller
 
     public function trash(){
         $trashed_categories = Category::onlyTrashed()->get();
-        return view('layouts.admin.trash', compact('trashed_categories'));
+        return view('layouts.admin.category.trash', compact('trashed_categories'));
     }
 }

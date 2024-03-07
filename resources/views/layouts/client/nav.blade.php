@@ -43,6 +43,9 @@
 
                          <a href="contact.html" class="nav-item nav-link">Contact</a>
                      </div>
+
+
+                     
                      {{-- <a class="nav-link dropdown-toggle btn btn-primary py-2 px-4 ml-auto d-none d-lg-block" href="">Join Now</a> --}}
                      {{-- <div class="dropdown-menu rounded-0 m-0">
                         <a href="blog.html" class="dropdown-item">Blog List</a>
@@ -59,7 +62,7 @@
                          <a href="#" class="nav-link dropdown-toggle"
                              data-toggle="dropdown">{{ Auth::user()->name }}</a> 
                          <div class="dropdown-menu rounded-0 m-0">
-                             <a href="{{ url('') }}" class="dropdown-item">My Account</a>
+                             <a href="{{ url('/profile') }}" class="dropdown-item">My Account</a>
                              <a href="{{ route('logout') }}" class="dropdown-item"
                                  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

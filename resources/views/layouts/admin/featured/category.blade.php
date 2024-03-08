@@ -27,7 +27,7 @@
                             <option value="{{ $item->id }}">{{ $item->title }}</option>
                         @endforeach
                     </select>
-                    <button type="submit" class="btn btn-primary">Add</button>
+                    <button type="submit" class="btn btn-primary mx-2">Add</button>
                 </form>
             </div>
         </div>
@@ -45,7 +45,7 @@
                         <tr>
                             <td>{{$fcat->category->title}}</td> 
                             <td>
-                                <a href="{{url('/admin/featured/categories/delete'.$fcat->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                <a href="{{url('/admin/featured/categories/delete/'.$fcat->id)}}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

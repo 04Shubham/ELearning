@@ -1,17 +1,18 @@
 @extends('layouts.client.master')
-@section('title', $category->title.'-ELearers')
+@section('title', $category->title . '-ELearers')
 
 
 @section('content')
     <div class="container-fluid py-5">
         <div class="row justify-content-center">
-           
+
             <div class="col-md-12">
+                <div class="row d-flex justify-content-center mb-4">
                 @foreach ($courses as $course)
-                    <div class="col-lg-4 col-md-6 mb-4">
-                        <div class="rounded overflow-hidden mb-2">
-                            <img class="img-fluid" src="{{ asset('uploads/course/' . $course->image) }}"
-                                alt="">
+                        <div class="rounded overflow-hidden mb-2" style="display: inline-block !important; width: 300px; margin-left: 10px;">
+                            <div style="text-align: center;">
+                                <img class="img-fluid" src="{{ asset('uploads/course/' . $course->image) }}" alt="">
+                            </div>
                             <div class="bg-secondary p-4">
                                 <div class="d-flex justify-content-between mb-3">
                                     <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>45 Students</small>
@@ -22,19 +23,20 @@
                                 </div>
                                 <h5 class="card-title">{{ $course->title }}</h5>
                                 <p class="card-text"></p>
-                                                               
+
                                 <div class="border-top mt-4 pt-4">
                                     <div class="d-flex justify-content-between">
-                                        <h5 class="m-0">Rs.{{$course->price}}/- </h5>
-                                        <a class="btn btn-primary" href="{{ url('category/'.$category->slug.'/'.$course->slug) }}">Browse</a>
+                                        <h5 class="m-0">Rs.{{ $course->price }}/- </h5>
+                                        <a class="btn btn-primary"
+                                            href="{{ url('category/' . $category->slug . '/' . $course->slug) }}">Browse</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                @endforeach
-                <div class="d-flex justify-content-center">
-                    {{$courses->links()}}
+                <div class="d-flex justify-content-center md-5">
+                    {{ $courses->links() }}
                 </div>
             </div>
         </div>

@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use App\Models\Course;
+use App\Models\FeaturedCourse;
 use App\Models\Category;
 use App\Models\FeaturedCategory;
 
@@ -45,6 +47,37 @@ class FeaturedController extends Controller
      }
 
     public function view_featured_courses(){
-        return view('layouts.admin.featured.courses');
+        $courses = Course::all();
+        $featured_courses = FeaturedCourse::all();
+        return view('layouts.admin.featured.courses', compact('courses','featured_courses'));
     }
+
+    public function store_featured_course(Request $request){
+        $course = FeaturedCourse::where('course_id', $request->course_id)->first();
+        if($course) {
+            return redirect('/admin/featured/courses')->with('error','course already added to Featured List !');
+        } 
+        else{ 
+            $featuredcourse = new FeaturedCourse;
+            $featuredcourse->course_id = $request->course_id;
+            $featuredcourse->save();
+           
+            return redirect('/admin/featured/courses')->with('success','course Successfully added to Featured List !');
+        }
+        
+     }
+
+     public function remove_featured_course($id){
+        $featuredCourses = FeaturedCourse::find($id);
+        if ($featuredCourses) {
+            $featuredCourses->delete();
+            return redirect('/admin/featured/courses')->with('success','course Successfully remove form the Featured List !');
+        } 
+        else {
+            return redirect('/admin/featured/courses')->with('error','course not found !');
+            
+        }
+        
+     }
+    
 }

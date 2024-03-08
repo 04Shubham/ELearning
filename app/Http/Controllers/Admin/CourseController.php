@@ -51,6 +51,7 @@ class CourseController extends Controller
         $course->save();
         return redirect('/admin/courses')->with('success', 'Course Created Successfully ');
     }
+    
     public function edit($id){
         $course = Course::find($id);
         if($course){
@@ -66,6 +67,7 @@ class CourseController extends Controller
             $course->title = $request->title;
             $course->description = $request->description;
             $course->slug = str::slug ($request->slug);
+
     
             if($request->hasfile('image')){
                 $destination = 'uploads/course/'.$course->image;
@@ -77,6 +79,8 @@ class CourseController extends Controller
                 $file->move('uploads/course/',$filename);
                 $course->image = $filename;
             }
+
+            $course->price = $request->price;
             $course->meta_title = $request->meta_title;
             $course->meta_description = $request->meta_description;
             $course->update();

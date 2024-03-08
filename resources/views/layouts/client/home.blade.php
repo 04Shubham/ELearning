@@ -9,7 +9,7 @@
 
     @include('layouts.client.nav ')
     <!-- Carousel Start -->
-    <div class="container-fluid p-0 pb-5 mb-5">
+    <div class="container-fluid p-0 pb-3 mb-3">
         <div id="header-carousel" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#header-carousel" data-slide-to="0" class="active"></li>
@@ -23,7 +23,7 @@
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
                         <div class="p-5" style="width: 100%; max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-md-3">Best Online Courses</h5>
-                            <h1 class="display-3 text-white mb-md-4">Best Education From Your Home</h1>
+                            <h1 class="display-3 text-white mb-md-4">Best Online Learning Platform</h1>
                             <a href="#" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn
                                 More</a>
                         </div>
@@ -35,13 +35,13 @@
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
                         <div class="p-5" style="width: 100%; max-width: 900px;">
                             <h5 class="text-white text-uppercase mb-md-3">Best Online Courses</h5>
-                            <h1 class="display-3 text-white mb-md-4">Best Online Learning Platform</h1>
+                            <h1 class="display-3 text-white mb-md-4">Best Education From Your Home</h1>
                             <a href="#" class="btn btn-primary py-md-2 px-md-4 font-weight-semi-bold mt-2">Learn
                                 More</a>
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item active" style="min-height: 300px;">
+                <div class="carousel-item " style="min-height: 300px;">
                     <img class="position-relative w-100" src="{{ asset('client/img/carousel-3.jpg') }}"
                         style="min-height: 300px; object-fit: cover;">
                     <div class="carousel-caption d-flex align-items-center justify-content-center">
@@ -60,10 +60,10 @@
 
 
     <!-- About Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
+    {{-- <div class="container-fluid py-4">
+        <div class="container py-4">
             <div class="row align-items-center">
-                <div class="col-lg-5">
+                <div class="col-lg-4">
                     <img class="img-fluid rounded mb-4 mb-lg-0" src="{{ asset('client/img/about.jpg') }}" alt="">
                 </div>
                 <div class="col-lg-7">
@@ -81,15 +81,15 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- About End -->
 
     <!-- Courses Start -->
-    <div class="container-fluid py-5">
-        <div class="container py-5">
+    <div class="container-fluid py-3">
+        <div class="container py-3">
             <div class="text-center mb-5">
                 <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Courses</h5>
-                <h1>Our Popular Courses</h1>
+                <h1>Our Popular Categories</h1>
             </div>
             <div class="row">
                 @php
@@ -107,8 +107,42 @@
                                 </div>
                                 <h5 class="card-title">{{ $fcat->category->title }}</h5>
                                 <p class="card-text"></p>
-                                <a class="btn btn-primary" href="{{ url('/category/' .$fcat->category->slug) }}">Browse</a>
-                                
+                                <a class="btn btn-primary" href="{{ url('/category/' . $fcat->category->slug) }}">Browse</a>
+
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+    <!-- Courses End -->
+
+    <!-- Courses Start -->
+    <div class="container-fluid py-3">
+        <div class="container py-3">
+            <div class="text-center mb-5">
+                <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Courses</h5>
+                <h1>Our Popular Courses</h1>
+            </div>
+            <div class="row">
+                @php
+                    $featured_courses = App\Models\FeaturedCourse::all();
+                @endphp
+                @foreach ($featured_courses as $fcos)
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="rounded overflow-hidden mb-2">
+                            <img class="img-fluid" src="{{ asset('uploads/course/' . $fcos->course->image) }}"
+                                alt="">
+                            <div class="bg-secondary p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <small class="m-0"><i class="fa fa-users text-primary mr-2"></i>45 Courses</small>
+                                    <small class="m-0"><i class="far fa-clock text-primary mr-2"></i>199 Students</small>
+                                </div>
+                                <h5 class="card-title">{{ $fcos->course->title }}</h5>
+                                <p class="card-text"></p>
+                                <a class="btn btn-primary" href="{{ url('category/' . $fcos->course->category->slug . '/' . $fcos->course->slug) }}">Browse</a>
+
                             </div>
                         </div>
                     </div>
@@ -119,10 +153,11 @@
     <!-- Courses End -->
 
 
+
     <!-- Category Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
-            <div class="text-center mb-5">
+    {{-- <div class="container-fluid py-2">
+        <div class="container pt-2 pb-2">
+            <div class="text-center mb-3">
                 <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Subjects</h5>
                 <h1>Explore Top Subjects</h1>
             </div>
@@ -201,12 +236,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Category Start -->
-  
+
     <!-- Registration Start -->
-    <div class="container-fluid bg-registration py-5" style="margin: 90px 0;">
-        <div class="container py-5">
+    <div class="container-fluid bg-registration py-3" style="margin: 90px 0;">
+        <div class="container py-3">
             <div class="row align-items-center">
                 <div class="col-lg-7 mb-5 mb-lg-0">
                     <div class="mb-4">
@@ -262,8 +297,8 @@
     <!-- Registration End -->
 
     <!-- Team Start -->
-    <div class="container-fluid py-5">
-        <div class="container pt-5 pb-3">
+    <div class="container-fluid py-3">
+        <div class="container pt-2 pb-2">
             <div class="text-center mb-5">
                 <h5 class="text-primary text-uppercase mb-3" style="letter-spacing: 5px;">Teachers</h5>
                 <h1>Meet Our Teachers</h1>

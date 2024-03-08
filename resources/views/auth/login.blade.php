@@ -1,5 +1,6 @@
 @extends('layouts.client.master')
-@section('title', 'Login-- ELearner')
+
+@section('title', 'Login-- ELearners')
 
 {{-- @section('content')
     <form action="{{ route('login') }}" method="post" role="form"></form>
@@ -116,21 +117,21 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
+                            <div class="col-md-8 offset-md-4 mt-5">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
 
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link mx-2" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
                                 @endif
                             </div>
                         </div>
                         <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <a class="btn btn-link" href="{{ __('register') }}"> Create an Account</a>
+                            <div class="col-md-8 offset-md-5 mt-2">
+                                <a class="btn btn-link " href="{{ __('register') }}"> Create an Account</a>
                             </div>
                         </div>
 
